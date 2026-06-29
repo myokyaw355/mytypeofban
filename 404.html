@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Ai Trading - 777 BIG WIN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0b0e1a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            color: #fff;
+        }
+
+        #splash {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0b0e1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease;
+        }
+        .splash-content {
+            text-align: center;
+            animation: fadeInUp 1s ease;
+        }
+        .splash-content .welcome {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: #aab;
+            letter-spacing: 2px;
+        }
+        .splash-content .brand {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f7971e, #ffd200, #f7971e);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 2s ease infinite;
+            margin: 8px 0 24px;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .splash-loader {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto;
+            border: 4px solid rgba(255, 210, 0, 0.1);
+            border-top-color: #ffd200;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+        .splash-loader-text {
+            color: #556688;
+            font-size: 0.8rem;
+            margin-top: 12px;
+            letter-spacing: 3px;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .login-container {
+            max-width: 380px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .login-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 28px;
+            padding: 32px 24px 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(255, 210, 0, 0.03), transparent 70%);
+            pointer-events: none;
+        }
+        .login-header {
+            text-align: center;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        .login-header .icon {
+            font-size: 2.5rem;
+            margin-bottom: 4px;
+        }
+        .login-header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .login-header p {
+            color: #8899bb;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            color: #ccd6f0;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+        .form-group .input-wrapper {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .form-group .input-wrapper:focus-within {
+            border-color: #ffd200;
+            box-shadow: 0 0 0 4px rgba(255, 210, 0, 0.06);
+            background: rgba(255, 210, 0, 0.03);
+        }
+        .form-group .input-wrapper.error {
+            border-color: #ff4757;
+            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.08);
+        }
+        .form-group .input-prefix {
+            padding: 0 10px 0 14px;
+            color: #8899bb;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.03);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 46px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 0.95rem;
+            outline: none;
+            min-height: 46px;
+        }
+        .form-group input::placeholder {
+            color: #556688;
+            font-size: 0.85rem;
+        }
+        .form-error {
+            color: #ff4757;
+            font-size: 0.75rem;
+            margin-top: 6px;
+            display: none;
+            align-items: center;
+            gap: 4px;
+        }
+        .form-error.show {
+            display: flex;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        .btn-login.btn-enabled {
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #0b0e1a;
+            box-shadow: 0 4px 25px rgba(255, 210, 0, 0.2);
+        }
+        .btn-login.btn-enabled:active {
+            transform: scale(0.96);
+        }
+        .btn-login.btn-disabled {
+            background: linear-gradient(135deg, #2a2f4a, #1a1f35);
+            color: #556688;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .btn-login .btn-loader {
+            display: none;
+            width: 24px;
+            height: 24px;
+            margin: 0 auto;
+            border: 3px solid rgba(11, 14, 26, 0.2);
+            border-top-color: #0b0e1a;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+        .btn-login.loading .btn-text {
+            display: none;
+        }
+        .btn-login.loading .btn-loader {
+            display: block;
+        }
+
+        .dialog-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(12px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        }
+        .dialog-overlay.show {
+            display: flex;
+        }
+        .dialog-box {
+            background: linear-gradient(145deg, #1a1f35, #0b0e1a);
+            border-radius: 28px;
+            padding: 36px 28px 32px;
+            max-width: 340px;
+            width: 92%;
+            text-align: center;
+            border: 1px solid rgba(255, 210, 0, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            animation: popIn 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .dialog-box.error {
+            border-color: rgba(255, 71, 87, 0.2);
+        }
+        .dialog-box.success {
+            border-color: rgba(46, 213, 115, 0.2);
+        }
+        .dialog-icon {
+            font-size: 3.5rem;
+            margin-bottom: 8px;
+        }
+        .dialog-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        .dialog-box p {
+            color: #8899bb;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+        .dialog-loader {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 12px;
+            border: 4px solid rgba(255, 210, 0, 0.08);
+            border-top-color: #ffd200;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        .dialog-btn {
+            margin-top: 18px;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            color: #0b0e1a;
+        }
+        .dialog-btn:active {
+            transform: scale(0.96);
+        }
+        .dialog-btn.link {
+            display: inline-block;
+            text-decoration: none;
+            padding: 12px 32px;
+        }
+        .dialog-btns {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+        }
+        .dialog-btns button {
+            padding: 10px 28px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .dialog-btns .yes {
+            background: #ff4757;
+            color: #fff;
+        }
+        .dialog-btns .no {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ccd6f0;
+        }
+        .dialog-btns button:active {
+            transform: scale(0.94);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.85) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        #homeScreen {
+            display: none;
+        }
+        #homeScreen.show {
+            display: block;
+        }
+        .home-container {
+            max-width: 100%;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 12px;
+        }
+        .header .title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #f7971e, #ffd200);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header .live-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: #2ed573;
+        }
+        .header .live-status .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #2ed573;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        .header .refresh-btn {
+            padding: 6px 14px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #8899bb;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .header .refresh-btn:active {
+            transform: scale(0.95);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ---------- REPLACED CHART CONTAINER WITH STUNNING CANDLESTICK ---------- */
+        .chart-container {
+            background: #131722;
+            border-radius: 16px;
+            padding: 0;
+            border: 1px solid #2d313c;
+            margin-bottom: 12px;
+            position: relative;
+            overflow: hidden;
+            height: 340px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+            touch-action: none;
+        }
+        .chart-container .chart-label {
+            position: absolute;
+            top: 12px;
+            left: 16px;
+            z-index: 10;
+            font-size: 0.7rem;
+            color: #8899bb;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: rgba(19, 23, 34, 0.7);
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.04);
+            backdrop-filter: blur(4px);
+            pointer-events: none;
+        }
+        .chart-container canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #131722;
+            cursor: grab;
+            touch-action: none;
+        }
+        .chart-container canvas:active { cursor: grabbing; }
+        .chart-container .watermark {
+            position: absolute;
+            bottom: 10px;
+            right: 16px;
+            color: #2a2e39;
+            font-size: 10px;
+            opacity: 0.25;
+            pointer-events: none;
+            font-family: 'SF Mono', monospace;
+            letter-spacing: 0.5px;
+            z-index: 5;
+        }
+        .chart-container .touch-hint {
+            position: absolute;
+            bottom: 10px;
+            left: 16px;
+            color: #2a2e39;
+            font-size: 10px;
+            opacity: 0.15;
+            pointer-events: none;
+            font-family: system-ui;
+            z-index: 5;
+        }
+        .chart-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #2d313c 20%, #2d313c 80%, transparent);
+            opacity: 0.3;
+            z-index: 2;
+            pointer-events: none;
+        }
+        /* ===== NEW: Countdown timer in bottom-right corner of chart ===== */
+        .chart-countdown {
+            position: absolute;
+            bottom: 12px;
+            right: 16px;
+            z-index: 15;
+            font-family: 'SF Mono', 'Courier New', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffd200;
+            background: rgba(11, 14, 26, 0.65);
+            backdrop-filter: blur(4px);
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 210, 0, 0.15);
+            letter-spacing: 2px;
+            box-shadow: 0 0 20px rgba(255, 210, 0, 0.05);
+            pointer-events: none;
+            text-shadow: 0 0 10px rgba(255, 210, 0, 0.2);
+        }
+        .chart-countdown span {
+            display: inline-block;
+            min-width: 40px;
+            text-align: center;
+        }
+        /* -------------------------------------------------------------- */
+
+        .period-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 12px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 12px;
+        }
+        .period-display .label {
+            color: #556688;
+            font-size: 0.8rem;
+        }
+        .period-display .value {
+            color: #ffd200;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+        .period-display .prediction {
+            padding: 4px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        .prediction.big {
+            background: rgba(46, 213, 115, 0.15);
+            color: #2ed573;
+            border: 1px solid rgba(46, 213, 115, 0.2);
+        }
+        .prediction.small {
+            background: rgba(255, 71, 87, 0.15);
+            color: #ff4757;
+            border: 1px solid rgba(255, 71, 87, 0.2);
+        }
+        .prediction.waiting {
+            background: rgba(255, 210, 0, 0.1);
+            color: #ffd200;
+            border: 1px solid rgba(255, 210, 0, 0.15);
+        }
+
+        .winrate-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 12px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 12px;
+        }
+        .winrate-container .winrate-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: #8899bb;
+            margin-bottom: 4px;
+        }
+        .winrate-bar {
+            height: 6px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            overflow: hidden;
+            position: relative;
+        }
+        .winrate-bar .fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.8s ease;
+            background: linear-gradient(90deg, #ff4757, #ffd200, #2ed573);
+        }
+
+        .history-container {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .history-container .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .history-container .history-header h3 {
+            font-size: 1rem;
+            color: #ffd200;
+        }
+        .history-container .history-header .clear-btn {
+            padding: 4px 12px;
+            border: none;
+            border-radius: 6px;
+            background: rgba(255, 71, 87, 0.12);
+            color: #ff4757;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .history-container .history-header .clear-btn:active {
+            transform: scale(0.95);
+        }
+
+        .history-scroll {
+            max-height: 180px;
+            overflow-y: auto;
+        }
+        .history-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .history-scroll::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+        .history-scroll::-webkit-scrollbar-thumb {
+            background: rgba(255, 210, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .history-table th {
+            text-align: left;
+            padding: 8px 10px;
+            color: #556688;
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            background: #0b0e1a;
+        }
+        .history-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .history-table .win {
+            color: #2ed573;
+        }
+        .history-table .loss {
+            color: #ff4757;
+        }
+        .history-table .waiting {
+            color: #ffd200;
+        }
+        .history-table .bet-big {
+            color: #2ed573;
+            font-weight: 600;
+        }
+        .history-table .bet-small {
+            color: #ff4757;
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .chart-container { height: 280px; }
+            .period-display .value { font-size: 1rem; }
+            .period-display .prediction { font-size: 0.75rem; padding: 3px 12px; }
+            .chart-countdown { font-size: 1rem; padding: 2px 10px; bottom: 8px; right: 10px; }
+        }
+        @media (max-width: 380px) {
+            .chart-container { height: 240px; }
+            .header .title { font-size: 1rem; }
+            .period-display { flex-wrap: wrap; gap: 6px; }
+            .chart-countdown { font-size: 0.85rem; padding: 2px 8px; }
+        }
+        @media (min-width: 600px) {
+            body { padding: 20px; }
+            .chart-container { height: 400px; }
+        }
+        @media (min-width: 768px) {
+            body { padding: 24px; }
+            .chart-container { height: 460px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="splash">
+        <div class="splash-content">
+            <div class="welcome">✨ Welcome to</div>
+            <div class="brand">Ai Trading</div>
+            <div class="splash-loader"></div>
+            <div class="splash-loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <div id="app" style="display:none;">
+
+        <div id="loginScreen">
+            <div class="login-container">
+                <div class="login-card">
+                    <div class="login-header">
+                        <div class="icon">🔐</div>
+                        <h1>Login</h1>
+                        <p>Enter your credentials to continue</p>
+                    </div>
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label>📱 Phone Number</label>
+                            <div class="input-wrapper" id="phoneWrapper">
+                                <span class="input-prefix">+95</span>
+                                <input type="tel" id="phone" placeholder="9XXXXXXXX" required />
+                            </div>
+                            <div class="form-error" id="phoneError">⚠️ Please enter a valid phone number</div>
+                        </div>
+                        <div class="form-group">
+                            <label>🔑 Password</label>
+                            <div class="input-wrapper" id="passwordWrapper">
+                                <input type="password" id="password" placeholder="••••••" required />
+                            </div>
+                            <div class="form-error" id="passwordError">⚠️ Please enter your password</div>
+                        </div>
+                        <button type="submit" id="loginBtn" class="btn-login btn-disabled" disabled>
+                            <span class="btn-text">Login</span>
+                            <span class="btn-loader"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="homeScreen">
+            <div class="home-container">
+
+                <div class="header">
+                    <div class="title">📈 Ai Trading Chart</div>
+                    <div class="live-status">
+                        <span class="dot"></span>
+                        <span>Live</span>
+                    </div>
+                    <button class="refresh-btn" onclick="refreshData()">🔄</button>
+                </div>
+
+                <div class="chart-container" id="chartContainer">
+                    <div class="chart-label">📊 Trading Signal</div>
+                    <canvas id="chartCanvas"></canvas>
+                    <div class="chart-countdown" id="chartCountdown">
+                        <span id="countdownDisplay">00:58</span>
+                    </div>
+                </div>
+
+                <div class="period-display">
+                    <div>
+                        <div class="label">📅 Now Period</div>
+                        <div class="value" id="periodDisplay">-----</div>
+                    </div>
+                    <div>
+                        <div class="label">🎯 Next Prediction</div>
+                        <div class="prediction waiting" id="predictionDisplay">Waiting...</div>
+                    </div>
+                </div>
+
+                <div class="winrate-container">
+                    <div class="winrate-label">
+                        <span>🏆 Win Rate</span>
+                        <span id="winrateText">0%</span>
+                    </div>
+                    <div class="winrate-bar">
+                        <div class="fill" id="winrateFill" style="width:0%;"></div>
+                    </div>
+                </div>
+
+                <div class="history-container">
+                    <div class="history-header">
+                        <h3>📋 Ai Trading History</h3>
+                        <button class="clear-btn" onclick="showClearDialog()">🗑️ Clear</button>
+                    </div>
+                    <div class="history-scroll" id="historyScroll">
+                        <table class="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Period</th>
+                                    <th>B/S</th>
+                                    <th>W/L</th>
+                                </tr>
+                            </thead>
+                            <tbody id="historyBody">
+                                <tr>
+                                    <td colspan="3" style="text-align:center;color:#556688;padding:20px;">No history yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="dialog-overlay" id="loadingDialog">
+        <div class="dialog-box">
+            <div class="dialog-loader"></div>
+            <h3>⏳ ခဏစောင့်ပါ</h3>
+            <p id="loadingMessage">အကောင့်၀င်နေပါတယ်ခင်ဗျာ...</p>
+        </div>
+    </div>
+
+    <div class="dialog-overlay" id="errorDialog">
+        <div class="dialog-box error" onclick="event.stopPropagation()">
+            <div class="dialog-icon">❌</div>
+            <h3 id="errorTitle">Oops!!</h3>
+            <p id="errorMessage">Error message here</p>
+            <a id="errorButtonLink" href="#" target="_blank" style="text-decoration:none;">
+                <button class="dialog-btn" id="errorButton" onclick="closeErrorDialog()">OK</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="dialog-overlay" id="clearDialog">
+        <div class="dialog-box">
+            <div style="font-size:3rem; margin-bottom:8px;">🗑️</div>
+            <h3>Clear History</h3>
+            <p>Are you sure you want to clear all your trading history?</p>
+            <div class="dialog-btns">
+                <button class="yes" onclick="clearHistory()">Yes</button>
+                <button class="no" onclick="closeClearDialog()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js">
+    </script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCnZwakihaK8aKFHcu400o6JFIe_YPlGUQ",
+            authDomain: "my-website-d655d.firebaseapp.com",
+            databaseURL: "https://my-website-d655d-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "my-website-d655d",
+            storageBucket: "my-website-d655d.firebasestorage.app",
+            messagingSenderId: "320103112364",
+            appId: "1:320103112364:web:2ffc3cbc7216d04c480909",
+            measurementId: "G-V50TTL67YW"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        const API_BASE_URL = "https://api.bigwinqaz.com/api/webapi/";
+        let currentUser = null;
+        let isLoggingIn = false;
+        let historyData = [];
+        let chartData = [];
+        let currentPrediction = null;
+        let currentPeriod = null;
+        let isCleared = false;
+        let refreshInterval = null;
+        let isFetching = false;
+        let timerInterval = null;
+        let currentGameMode = 'WINGO';
+        let currentTimeMode = '1min';
+        let analysisData = {};
+
+        let countdownSeconds = 58;   // start at 58 seconds
+        let countdownInterval = null;
+
+        function startCountdown() {
+            if (countdownInterval) clearInterval(countdownInterval);
+            countdownInterval = setInterval(() => {
+                countdownSeconds -= 1;
+                if (countdownSeconds < 0) {
+                    countdownSeconds = 59;
+                }
+                updateCountdownDisplay();
+            }, 1000);
+        }
+
+        function updateCountdownDisplay() {
+            const el = document.getElementById('countdownDisplay');
+            if (!el) return;
+            const sec = Math.floor(countdownSeconds);
+            const formatted = String(sec).padStart(2, '0');
+            el.textContent = '00:' + formatted;
+        }
+
+        // reset countdown when new period arrives
+        function resetCountdown() {
+            countdownSeconds = 58;
+            updateCountdownDisplay();
+        }
+
+        function getStorageKey() {
+            if (!currentUser) return 'ai_trading_history_default';
+            return 'ai_trading_history_' + currentUser.userId;
+        }
+
+        function loadHistoryFromStorage() {
+            try {
+                const key = getStorageKey();
+                const stored = localStorage.getItem(key);
+                if (stored) {
+                    historyData = JSON.parse(stored);
+                    if (!Array.isArray(historyData)) historyData = [];
+                    if (historyData.length > 50) historyData = historyData.slice(0, 50);
+                } else {
+                    historyData = [];
+                }
+            } catch (e) {
+                historyData = [];
+            }
+            return historyData;
+        }
+
+        function saveHistoryToStorage() {
+            try {
+                const key = getStorageKey();
+                if (historyData.length > 50) {
+                    historyData = historyData.slice(0, 50);
+                }
+                localStorage.setItem(key, JSON.stringify(historyData));
+            } catch (e) {
+                console.error('Save to storage error:', e);
+            }
+        }
+
+        function loadAnalysisDataFromFirebase() {
+            return db.ref('analysisData').once('value')
+                .then(snapshot => {
+                    const data = snapshot.val() || {};
+                    analysisData = data;
+                    console.log('📊 Analysis data loaded from Firebase:', Object.keys(data));
+                    return data;
+                })
+                .catch(err => {
+                    console.error('Error loading analysis data:', err);
+                    analysisData = {};
+                    return {};
+                });
+        }
+
+        function getAnalysisHistory(gameMode, timeMode) {
+            const key = `${gameMode}_${timeMode}`;
+            return analysisData[key] || '';
+        }
+
+        let canvas, ctx;
+        let candles = [];
+        let offset = 0;
+        let zoom = 1.0;
+        const MIN_ZOOM = 0.3;
+        const MAX_ZOOM = 4.0;
+        const MAX_CANDLES = 40;
+
+        function rand(scale) { return (Math.random() * 2 - 1) * scale; }
+
+        function genCandle(prev) {
+            let bias = Math.random() < 0.35 ? 0.4 : Math.random() < 0.65 ? -0.35 : 0.05;
+            let change = rand(0.8) + bias * 0.7;
+            let close = Math.max(0.5, prev + change);
+            let open = Math.max(0.2, prev + rand(0.3) * 0.5);
+            let high = Math.max(open, close) + Math.random() * 0.9 + 0.3;
+            let low = Math.min(open, close) - Math.random() * 0.9 - 0.3;
+            return { open, high, low, close };
+        }
+
+        function initCandles() {
+            candles = [];
+            let price = 100;
+            for (let i = 0; i < MAX_CANDLES + 10; i++) {
+                let c = genCandle(price);
+                candles.push(c);
+                price = c.close;
+            }
+            while (candles.length > MAX_CANDLES) candles.shift();
+            offset = Math.max(0, candles.length - getVisibleCount());
+        }
+
+        function getVisibleCount() {
+            if (!ctx) return 20;
+            const w = canvas.width / (window.devicePixelRatio || 1);
+            const layout = getLayout();
+            let bw = (layout.width / MAX_CANDLES) * (1 / zoom);
+            return Math.ceil(layout.width / bw) + 2;
+        }
+
+        function getLayout() {
+            const w = canvas.width / (window.devicePixelRatio || 1);
+            const h = canvas.height / (window.devicePixelRatio || 1);
+            return {
+                left: w * 0.028,
+                right: w * 0.972,
+                top: h * 0.055,
+                bottom: h * 0.94,
+                width: w * 0.944,
+                height: h * 0.885
+            };
+        }
+
+        function resizeChart() {
+            const container = document.getElementById('chartContainer');
+            const rect = container.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            canvas.style.width = rect.width + 'px';
+            canvas.style.height = rect.height + 'px';
+            if (ctx) {
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.scale(dpr, dpr);
+            }
+            drawCandles();
+        }
+
+        function drawCandles() {
+            if (!ctx) return;
+            const layout = getLayout();
+            const w = canvas.width / (window.devicePixelRatio || 1);
+            const h = canvas.height / (window.devicePixelRatio || 1);
+            ctx.clearRect(0, 0, w, h);
+
+            // grid
+            ctx.strokeStyle = '#2a2e39';
+            ctx.lineWidth = 0.5;
+            for (let i = 0; i <= 7; i++) {
+                let y = layout.top + (i / 7) * layout.height;
+                ctx.beginPath();
+                ctx.moveTo(layout.left, y);
+                ctx.lineTo(layout.right, y);
+                ctx.stroke();
+            }
+            for (let i = 0; i <= 10; i++) {
+                let x = layout.left + (i / 10) * layout.width;
+                ctx.beginPath();
+                ctx.moveTo(x, layout.top);
+                ctx.lineTo(x, layout.bottom);
+                ctx.stroke();
+            }
+
+            if (candles.length === 0) return;
+
+            let bw = (layout.width / MAX_CANDLES) * (1 / zoom);
+            let vis = Math.ceil(layout.width / bw) + 2;
+            let start = Math.floor(offset);
+            let end = Math.min(start + vis, candles.length);
+            if (start < 0) start = 0;
+            if (end <= start) return;
+
+            let actualStart = Math.max(0, start);
+            let actualEnd = Math.min(candles.length, end);
+            if (actualStart >= actualEnd) return;
+
+            let minP = Infinity,
+                maxP = -Infinity;
+            for (let i = actualStart; i < actualEnd; i++) {
+                let c = candles[i];
+                if (c.low < minP) minP = c.low;
+                if (c.high > maxP) maxP = c.high;
+            }
+            let range = maxP - minP;
+            let pad = range * 0.08 || 0.8;
+            minP -= pad;
+            maxP += pad;
+            if (minP < 0.01) minP = 0.01;
+
+            let spacing = bw;
+            let bodyW = Math.min(bw * 0.9, spacing * 0.92);
+
+            for (let i = actualStart; i < actualEnd; i++) {
+                let c = candles[i];
+                let idx = i - start;
+                let x = layout.left + idx * spacing + spacing * 0.5;
+                if (x < layout.left - bodyW || x > layout.right + bodyW) continue;
+
+                let yOpen = layout.top + layout.height - ((c.open - minP) / (maxP - minP)) * layout.height;
+                let yClose = layout.top + layout.height - ((c.close - minP) / (maxP - minP)) * layout.height;
+                let yHigh = layout.top + layout.height - ((c.high - minP) / (maxP - minP)) * layout.height;
+                let yLow = layout.top + layout.height - ((c.low - minP) / (maxP - minP)) * layout.height;
+
+                let bull = c.close >= c.open;
+                let color = bull ? '#26A69A' : '#EF5350';
+
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 1.8;
+                ctx.beginPath();
+                ctx.moveTo(x, yHigh);
+                ctx.lineTo(x, yLow);
+                ctx.stroke();
+
+                let top = Math.min(yOpen, yClose);
+                let bottom = Math.max(yOpen, yClose);
+                let hh = Math.max(2.0, bottom - top);
+                ctx.fillStyle = color;
+                ctx.fillRect(x - bodyW / 2, top, bodyW, hh);
+                ctx.strokeStyle = color;
+                ctx.lineWidth = 0.8;
+                ctx.strokeRect(x - bodyW / 2, top, bodyW, hh);
+            }
+
+            // last price line
+            if (candles.length > 0 && actualStart < candles.length) {
+                let lastCandle = candles[candles.length - 1];
+                let lastPrice = lastCandle.close;
+                let yPrice = layout.top + layout.height - ((lastPrice - minP) / (maxP - minP)) * layout.height;
+                ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+                ctx.lineWidth = 0.8;
+                ctx.setLineDash([3, 4]);
+                ctx.beginPath();
+                ctx.moveTo(layout.left, yPrice);
+                ctx.lineTo(layout.right, yPrice);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                ctx.fillStyle = 'rgba(255,255,255,0.15)';
+                ctx.font = '10px monospace';
+                ctx.fillText(lastPrice.toFixed(2), layout.right - 60, yPrice - 6);
+            }
+        }
+
+        let dragging = false;
+        let startX = 0,
+            startOff = 0,
+            vel = 0,
+            lastX = 0,
+            lastTime = 0,
+            animId = null,
+            pointerId = null;
+
+        function clampOffset() {
+            let maxOff = Math.max(0, candles.length - getVisibleCount());
+            let overscroll = getVisibleCount() * 0.05;
+            if (offset < -overscroll) offset = -overscroll;
+            if (offset > maxOff + overscroll) offset = maxOff + overscroll;
+        }
+
+        function getX(e) {
+            let rect = canvas.getBoundingClientRect();
+            let scale = (canvas.width / (window.devicePixelRatio || 1)) / rect.width;
+            let cx = e.touches ? e.touches[0].clientX : e.clientX;
+            return (cx - rect.left) * scale;
+        }
+
+        function getCenter(e) {
+            let rect = canvas.getBoundingClientRect();
+            let scale = (canvas.width / (window.devicePixelRatio || 1)) / rect.width;
+            let cx = e.touches ? e.touches[0].clientX : e.clientX;
+            return (cx - rect.left) * scale;
+        }
+
+        function onDown(e) {
+            e.preventDefault();
+            if (animId) { cancelAnimationFrame(animId);
+                animId = null; }
+            dragging = true;
+            let x = getX(e);
+            startX = x;
+            startOff = offset;
+            lastX = x;
+            lastTime = performance.now();
+            vel = 0;
+            canvas.style.cursor = 'grabbing';
+            if (e.touches) { pointerId = e.touches[0].identifier; }
+        }
+
+        function onMove(e) {
+            e.preventDefault();
+            if (!dragging) return;
+            if (e.touches && pointerId !== null) {
+                let found = false;
+                for (let t of e.touches) { if (t.identifier === pointerId) { found = true; break; } }
+                if (!found) return;
+            }
+            let x = getX(e);
+            let layout = getLayout();
+            let bw = (layout.width / MAX_CANDLES) * (1 / zoom);
+            let delta = -(x - startX) / bw;
+            offset = startOff + delta;
+            clampOffset();
+            let now = performance.now();
+            let dt = now - lastTime;
+            if (dt > 0) { let dx = x - lastX;
+                vel = -dx / dt * 8; }
+            lastX = x;
+            lastTime = now;
+            drawCandles();
+        }
+
+        function onUp(e) {
+            e.preventDefault();
+            if (dragging) {
+                dragging = false;
+                canvas.style.cursor = 'grab';
+                pointerId = null;
+                if (Math.abs(vel) > 0.15) {
+                    let friction = 0.94;
+
+                    function step() {
+                        if (Math.abs(vel) < 0.02) { animId = null; return; }
+                        offset += vel;
+                        clampOffset();
+                        vel *= friction;
+                        drawCandles();
+                        animId = requestAnimationFrame(step);
+                    }
+                    animId = requestAnimationFrame(step);
+                }
+            }
+        }
+
+        function initChartEvents() {
+            canvas = document.getElementById('chartCanvas');
+            ctx = canvas.getContext('2d');
+            canvas.addEventListener('mousedown', onDown);
+            window.addEventListener('mousemove', onMove);
+            window.addEventListener('mouseup', onUp);
+            canvas.addEventListener('touchstart', onDown, { passive: false });
+            canvas.addEventListener('touchmove', onMove, { passive: false });
+            canvas.addEventListener('touchend', onUp, { passive: false });
+            canvas.addEventListener('touchcancel', onUp, { passive: false });
+
+            canvas.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                if (animId) { cancelAnimationFrame(animId);
+                    animId = null; }
+                let delta = e.deltaY > 0 ? -0.1 : 0.1;
+                let newZoom = zoom * (1 + delta);
+                newZoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, newZoom));
+                let layout = getLayout();
+                let center = getCenter(e);
+                let rel = (center - layout.left) / layout.width;
+                let bw = (layout.width / MAX_CANDLES) * (1 / zoom);
+                let centerCandle = offset + rel * getVisibleCount();
+                zoom = newZoom;
+                let newBw = (layout.width / MAX_CANDLES) * (1 / zoom);
+                let newVisible = layout.width / newBw;
+                offset = centerCandle - rel * newVisible;
+                clampOffset();
+                vel = 0;
+                drawCandles();
+            }, { passive: false });
+
+            window.addEventListener('resize', () => {
+                resizeChart();
+            });
+            initCandles();
+            resizeChart();
+        }
+
+        function updateLastCandle() {
+            if (!candles.length) return;
+            let last = candles[candles.length - 1];
+            let drift = (Math.random() - 0.5) * 0.025;
+            last.close = Math.max(0.5, last.close + drift);
+            last.high = Math.max(last.high, last.close + Math.random() * 0.25);
+            last.low = Math.min(last.low, last.close - Math.random() * 0.25);
+            if (Math.random() < 0.008) {
+                last.open += (Math.random() - 0.5) * 0.1;
+                last.open = Math.max(0.2, last.open);
+            }
+        }
+
+        function addCandle() {
+            let last = candles[candles.length - 1];
+            let c = genCandle(last.close);
+            candles.push(c);
+            if (candles.length > MAX_CANDLES + 30) {
+                let removed = candles.length - MAX_CANDLES;
+                candles.splice(0, removed);
+                offset = Math.max(0, offset - removed);
+            }
+            let maxOff = Math.max(0, candles.length - getVisibleCount());
+            if (offset >= maxOff - 1) { offset = maxOff; }
+            drawCandles();
+        }
+
+        let lastNew = 0;
+        const CANDLE_INTERVAL = 30;
+
+        function chartLoop() {
+            updateLastCandle();
+            let now = Date.now() / 1000;
+            if (!lastNew) lastNew = now;
+            if (now - lastNew >= CANDLE_INTERVAL) {
+                addCandle();
+                lastNew = now;
+            }
+            drawCandles();
+            requestAnimationFrame(chartLoop);
+        }
+
+        function generateRandomKey() {
+            const chars = '0123456789abcdef';
+            let result = '';
+            const template = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx';
+            for (let i = 0; i < template.length; i++) {
+                const c = template[i];
+                if (c === 'x') result += chars[Math.floor(Math.random() * chars.length)];
+                else if (c === 'y') result += ['8', '9', 'a', 'b'][Math.floor(Math.random() * 4)];
+                else result += c;
+            }
+            return result;
+        }
+
+        function md5Hash(str) { return CryptoJS.MD5(str).toString().toUpperCase(); }
+
+        function sign(data) {
+            const keys = Object.keys(data).sort();
+            const sorted = {};
+            keys.forEach(k => sorted[k] = data[k]);
+            return md5Hash(JSON.stringify(sorted));
+        }
+
+        function fetchNoAverageEmerdList(pageSize = 10, pageNo = 1) {
+            return new Promise(resolve => {
+                try {
+                    const data = {
+                        pageSize: pageSize,
+                        pageNo: pageNo,
+                        typeId: 1,
+                        language: 0,
+                        random: generateRandomKey()
+                    };
+                    data.signature = sign(data).toUpperCase();
+                    data.timestamp = Math.floor(Date.now() / 1000);
+                    fetch(API_BASE_URL + 'GetNoaverageEmerdList', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json, text/plain, */*',
+                                'Content-Type': 'application/json;charset=UTF-8'
+                            },
+                            body: JSON.stringify(data)
+                        })
+                        .then(r => r.json())
+                        .then(result => {
+                            if (result.code === 0 && result.data?.list?.length) {
+                                resolve(result.data.list);
+                            } else { resolve([]); }
+                        })
+                        .catch(() => resolve([]));
+                } catch { resolve([]); }
+            });
+        }
+
+        function fetchGameIssue() {
+            return new Promise(resolve => {
+                try {
+                    const data = {
+                        typeId: 1,
+                        language: 7,
+                        random: generateRandomKey()
+                    };
+                    data.signature = sign(data).toUpperCase();
+                    data.timestamp = Math.floor(Date.now() / 1000);
+                    fetch(API_BASE_URL + 'GetGameIssue', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json, text/plain, */*',
+                                'Content-Type': 'application/json;charset=UTF-8'
+                            },
+                            body: JSON.stringify(data)
+                        })
+                        .then(r => r.json())
+                        .then(result => {
+                            if (result.code === 0 && result.data) { resolve(result.data); } else { resolve(
+                                null); }
+                        })
+                        .catch(() => resolve(null));
+                } catch { resolve(null); }
+            });
+        }
+
+        function apiLogin(username, password) {
+            return new Promise(resolve => {
+                try {
+                    username = username.replace(/\D/g, '');
+                    const data = {
+                        phonetype: -1,
+                        logintype: 'mobile',
+                        language: 0,
+                        pwd: password.trim(),
+                        username: '95' + username,
+                        random: generateRandomKey()
+                    };
+                    data.signature = sign(data).toUpperCase();
+                    data.timestamp = Math.floor(Date.now() / 1000);
+                    fetch(API_BASE_URL + 'Login', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json, text/plain, */*',
+                                'Content-Type': 'application/json;charset=UTF-8'
+                            },
+                            body: JSON.stringify(data)
+                        })
+                        .then(r => r.json())
+                        .then(result => {
+                            if (result.msgCode === 0 && result.data) {
+                                resolve({ success: true, authToken: result.data.tokenHeader + result.data.token,
+                                    data: result.data });
+                            } else resolve({ success: false, message: result.msg || 'Login failed' });
+                        })
+                        .catch(() => resolve({ success: false, message: 'Network error' }));
+                } catch { resolve({ success: false, message: 'Error' }); }
+            });
+        }
+
+        function apiGetUserInfo(authToken) {
+            return new Promise(resolve => {
+                try {
+                    const data = { language: 0, random: generateRandomKey() };
+                    data.signature = sign(data).toUpperCase();
+                    data.timestamp = Math.floor(Date.now() / 1000);
+                    fetch(API_BASE_URL + 'GetUserInfo', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json, text/plain, */*',
+                                'Content-Type': 'application/json;charset=UTF-8',
+                                'Authorization': authToken
+                            },
+                            body: JSON.stringify(data)
+                        })
+                        .then(r => r.json())
+                        .then(result => {
+                            if (result.msgCode === 0 && result.data) {
+                                resolve({ success: true, userId: String(result.data.userId),
+                                    balance: parseFloat(result.data.amount || 0), data: result.data });
+                            } else resolve({ success: false, message: result.msg || 'Failed to get user info' });
+                        })
+                        .catch(() => resolve({ success: false, message: 'Network error' }));
+                } catch { resolve({ success: false, message: 'Error' }); }
+            });
+        }
+
+        function getActiveUsers() { return db.ref('activeUsers').once('value').then(s => s.val() || []); }
+
+        function checkUserInFirebase(uid) { return db.ref('users/' + uid).once('value').then(s => s.exists()); }
+
+        function updateUserBalance(uid, bal) { return db.ref('users/' + uid).update({ balance: bal, lastLogin: Date
+                    .now() }); }
+
+        function categorizeNumber(number) {
+            if (number >= 0 && number <= 4) return 'SMALL';
+            if (number >= 5 && number <= 9) return 'BIG';
+            return 'UNKNOWN';
+        }
+
+        function analyzePattern(history, pattern) {
+            const result = {
+                total: 0,
+                digit_counts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                small: 0,
+                big: 0,
+                small_percent: 0.0,
+                big_percent: 0.0,
+                ai_prediction: null
+            };
+            if (pattern.length !== 2 || !/^\d{2}$/.test(pattern)) return result;
+            for (let i = 0; i < history.length - 1; i++) {
+                if (history.substring(i, i + 2) === pattern) {
+                    const leftIdx = i - 1;
+                    if (leftIdx >= 0 && leftIdx < history.length) {
+                        const char = history[leftIdx];
+                        if (/^\d$/.test(char)) {
+                            const digit = parseInt(char);
+                            result.digit_counts[digit] += 1;
+                            result.total += 1;
+                        }
+                    }
+                }
+            }
+            if (result.total > 0) {
+                for (let i = 0; i < 5; i++) result.small += result.digit_counts[i];
+                for (let i = 5; i < 10; i++) result.big += result.digit_counts[i];
+                result.small_percent = (result.small * 100.0) / result.total;
+                result.big_percent = (result.big * 100.0) / result.total;
+                if (result.big > result.small) result.ai_prediction = "BIG";
+                else if (result.small > result.big) result.ai_prediction = "SMALL";
+            }
+            return result;
+        }
+
+        function getGlobalPrediction(history, pattern) {
+            if (!history || history.length < 2) return null;
+            const analysis = analyzePattern(history, pattern);
+            if (analysis.total === 0) return null;
+            return analysis.ai_prediction;
+        }
+
+        function renderHistory() {
+            const tbody = document.getElementById('historyBody');
+            if (!historyData.length) {
+                tbody.innerHTML =
+                    '<tr><td colspan="3" style="text-align:center;color:#556688;padding:20px;">No history yet</td></tr>';
+                return;
+            }
+            let html = '',
+                winCount = 0,
+                total = 0;
+            historyData.forEach(item => {
+                total++;
+                if (item.result === 'WIN') winCount++;
+                const resultClass = item.result === 'WIN' ? 'win' : (item.result === 'LOSS' ? 'loss' : 'waiting');
+                const resultText = item.result === 'WIN' ? '✅ WIN' : (item.result === 'LOSS' ? '❌ LOSS' :
+                    '⏳ Waiting');
+                const betClass = item.bet === 'BIG' ? 'bet-big' : 'bet-small';
+                html +=
+                    `<tr><td>${item.period}</td><td class="${betClass}">${item.bet}</td><td class="${resultClass}">${resultText}</td></tr>`;
+            });
+            tbody.innerHTML = html;
+            const winRate = total > 0 ? (winCount / total * 100) : 0;
+            document.getElementById('winrateText').textContent = winRate.toFixed(1) + '%';
+            document.getElementById('winrateFill').style.width = Math.min(winRate, 100) + '%';
+            updatePredictionDisplay();
+        }
+
+        function updatePredictionDisplay() {
+            const el = document.getElementById('predictionDisplay');
+            if (currentPrediction === 'BIG') {
+                el.className = 'prediction big';
+                el.textContent = '📈 BIG';
+            } else if (currentPrediction === 'SMALL') {
+                el.className = 'prediction small';
+                el.textContent = '📉 SMALL';
+            } else {
+                el.className = 'prediction waiting';
+                el.textContent = '⏳ Waiting...';
+            }
+        }
+
+        function updateDataAndPrediction() {
+            if (isFetching) return;
+            isFetching = true;
+            loadAnalysisDataFromFirebase()
+                .then(() => fetchGameIssue())
+                .then(gameData => {
+                    if (!gameData) { isFetching = false; return; }
+                    const currentIssue = gameData.issueNumber;
+                    // if period changed => reset countdown
+                    if (currentPeriod && currentPeriod !== currentIssue) {
+                        resetCountdown();
+                    }
+                    currentPeriod = currentIssue;
+                    document.getElementById('periodDisplay').textContent = currentPeriod;
+                    return fetchNoAverageEmerdList(10, 1)
+                        .then(list => {
+                            if (!list || list.length === 0) { isFetching = false; return; }
+                            // update chart data with real numbers
+                            chartData = list.map(item => Number(item.number));
+                            // update candles with real data
+                            if (chartData.length > 0) {
+                                // we keep candle simulation separate, but we update price level
+                            }
+                            let lastPred = JSON.parse(localStorage.getItem('lastPrediction_global') || 'null');
+                            let pattern = '';
+                            if (list.length >= 2) {
+                                const lastTwo = list.slice(0, 2).map(item => String(item.number));
+                                pattern = lastTwo.join('');
+                            }
+                            const isNewPeriod = (lastPred && lastPred.issueNumber !== currentIssue) || !lastPred;
+                            if (isNewPeriod) {
+                                if (lastPred) {
+                                    const prevPeriod = lastPred.issueNumber;
+                                    const prevPrediction = lastPred.category;
+                                    let prevActualCategory = null;
+                                    for (let i = 0; i < list.length; i++) {
+                                        if (String(list[i].issueNumber) === String(prevPeriod)) {
+                                            const prevActual = Number(list[i].number);
+                                            prevActualCategory = categorizeNumber(prevActual);
+                                            break;
+                                        }
+                                    }
+                                    if (prevActualCategory !== null) {
+                                        const result = (prevPrediction === prevActualCategory) ? 'WIN' :
+                                        'LOSS';
+                                        const existingIdx = historyData.findIndex(item => item.period === String(
+                                            prevPeriod));
+                                        if (existingIdx === -1) {
+                                            historyData.unshift({ period: String(prevPeriod), bet: prevPrediction,
+                                                result: result });
+                                        } else {
+                                            historyData[existingIdx].result = result;
+                                            historyData[existingIdx].bet = prevPrediction;
+                                        }
+                                        saveHistoryToStorage();
+                                        renderHistory();
+                                    }
+                                }
+                                const history = getAnalysisHistory(currentGameMode, currentTimeMode);
+                                const pred = getGlobalPrediction(history, pattern);
+                                let newPred;
+                                if (pred) {
+                                    newPred = { category: pred, issueNumber: currentIssue, source: 'analysis' };
+                                } else {
+                                    const randomNumber = Math.floor(Math.random() * 10);
+                                    const randomCategory = categorizeNumber(randomNumber);
+                                    newPred = { category: randomCategory, issueNumber: currentIssue,
+                                    source: 'random' };
+                                }
+                                currentPrediction = newPred.category;
+                                localStorage.setItem('lastPrediction_global', JSON.stringify(newPred));
+                            } else {
+                                if (lastPred) {
+                                    currentPrediction = lastPred.category;
+                                } else {
+                                    const history = getAnalysisHistory(currentGameMode, currentTimeMode);
+                                    const pred = getGlobalPrediction(history, pattern);
+                                    let newPred;
+                                    if (pred) {
+                                        newPred = { category: pred, issueNumber: currentIssue,
+                                        source: 'analysis' };
+                                    } else {
+                                        const randomNumber = Math.floor(Math.random() * 10);
+                                        const randomCategory = categorizeNumber(randomNumber);
+                                        newPred = { category: randomCategory, issueNumber: currentIssue,
+                                            source: 'random' };
+                                    }
+                                    currentPrediction = newPred.category;
+                                    localStorage.setItem('lastPrediction_global', JSON.stringify(newPred));
+                                }
+                            }
+                            updatePredictionDisplay();
+                            isFetching = false;
+                        })
+                        .catch(err => { isFetching = false; });
+                })
+                .catch(err => { isFetching = false; });
+        }
+
+        function refreshData() { updateDataAndPrediction(); }
+
+        window.handleLogin = function(e) {
+            e.preventDefault();
+            if (isLoggingIn) return;
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value.trim();
+            if (!phone.replace(/\D/g, '').length) {
+                document.getElementById('phoneWrapper').className = 'input-wrapper error';
+                document.getElementById('phoneError').className = 'form-error show';
+                return;
+            }
+            if (!password.length) {
+                document.getElementById('passwordWrapper').className = 'input-wrapper error';
+                document.getElementById('passwordError').className = 'form-error show';
+                return;
+            }
+            const btn = document.getElementById('loginBtn');
+            btn.className = 'btn-login btn-enabled loading';
+            btn.disabled = true;
+            isLoggingIn = true;
+            showLoading('🔍 အကောင့်စစ်ဆေးနေပါတယ်ခင်ဗျာ...');
+            apiLogin(phone, password)
+                .then(res => {
+                    if (!res.success) {
+                        hideLoading();
+                        btn.className = 'btn-login btn-enabled';
+                        btn.disabled = false;
+                        isLoggingIn = false;
+                        showErrorDialog('❌ Login Failed', res.message ||
+                            'Invalid phone number or password');
+                        return;
+                    }
+                    showLoading('🔍 အကောင့်အချက်အလက်ရယူနေပါတယ်...');
+                    return apiGetUserInfo(res.authToken);
+                })
+                .then(info => {
+                    if (!info) throw new Error('No user info');
+                    if (!info.success) {
+                        hideLoading();
+                        btn.className = 'btn-login btn-enabled';
+                        btn.disabled = false;
+                        isLoggingIn = false;
+                        showErrorDialog('❌ Failed to get user info', info.message ||
+                            'Please try again');
+                        return;
+                    }
+                    showLoading('🔍 အဖွဲ့ဝင်စစ်ဆေးနေပါတယ်...');
+                    return Promise.all([getActiveUsers(), checkUserInFirebase(info.userId)]).then(([active,
+                        exists
+                    ]) => ({ info, active, exists }));
+                })
+                .then(result => {
+                    if (!result) return;
+                    const { info, active, exists } = result;
+                    if (!active.includes(info.userId) || !exists) {
+                        hideLoading();
+                        btn.className = 'btn-login btn-enabled';
+                        btn.disabled = false;
+                        isLoggingIn = false;
+                        showErrorDialog('Oops!! ID: ' + info.userId,
+                            'You are not our member. Please Contact Admin, or Read the rules and instruction to be our member hero',
+                            'Admin Contact',
+                            'https://t.me/errorgaming1999'
+                        );
+                        return;
+                    }
+                    if (info.balance < 5000) {
+                        hideLoading();
+                        btn.className = 'btn-login btn-enabled';
+                        btn.disabled = false;
+                        isLoggingIn = false;
+                        showErrorDialog('⚠️ Insufficient Balance',
+                            'Account Balance: ' + info.balance.toFixed(0) +
+                            ' ks\n\nAi Agent Predictor requires balance 5,000 ks or above\n\nPlease deposit.'
+                            );
+                        return;
+                    }
+                    currentUser = { userId: info.userId, balance: info.balance, phone, game: '777 BIG WIN' };
+                    return updateUserBalance(info.userId, info.balance).then(() => info);
+                })
+                .then(info => {
+                    if (!info) {
+                        hideLoading();
+                        btn.className = 'btn-login btn-enabled';
+                        btn.disabled = false;
+                        isLoggingIn = false;
+                        return;
+                    }
+                    hideLoading();
+                    btn.className = 'btn-login btn-enabled';
+                    btn.disabled = false;
+                    isLoggingIn = false;
+                    navigateToHome(info.userId, info.balance, info.data);
+                })
+                .catch(err => {
+                    hideLoading();
+                    btn.className = 'btn-login btn-enabled';
+                    btn.disabled = false;
+                    isLoggingIn = false;
+                    showErrorDialog('❌ Login Error', err.message ||
+                        'An error occurred during login. Please try again.');
+                });
+        };
+
+        function navigateToHome(uid, balance, data) {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('homeScreen').style.display = 'block';
+            isCleared = false;
+            historyData = [];
+            loadHistoryFromStorage();
+            renderHistory();
+
+            // start chart after home shown
+            initChartEvents();
+            chartLoop();
+
+            // start countdown
+            resetCountdown();
+            startCountdown();
+
+            loadAnalysisDataFromFirebase()
+                .then(() => {
+                    updateDataAndPrediction();
+                });
+
+            if (refreshInterval) { clearInterval(refreshInterval);
+                refreshInterval = null; }
+            if (timerInterval) { clearInterval(timerInterval);
+                timerInterval = null; }
+            refreshInterval = setInterval(function() {
+                const now = new Date();
+                const seconds = now.getSeconds();
+                if (seconds <= 1) { updateDataAndPrediction(); }
+            }, 1000);
+            timerInterval = setInterval(function() {
+                updateDataAndPrediction();
+            }, 30000);
+        }
+
+        function showLoading(msg) {
+            document.getElementById('loadingMessage').textContent = msg || 'အကောင့်၀င်နေပါတယ်ခင်ဗျာ...';
+            document.getElementById('loadingDialog').className = 'dialog-overlay show';
+        }
+
+        function hideLoading() { document.getElementById('loadingDialog').className = 'dialog-overlay'; }
+
+        function showErrorDialog(title, msg, btnText, link) {
+            document.getElementById('errorTitle').textContent = title || 'Oops!!';
+            document.getElementById('errorMessage').textContent = msg || 'Error occurred';
+            document.getElementById('errorButton').textContent = btnText || 'OK';
+            const a = document.getElementById('errorButtonLink');
+            if (link) { a.href = link;
+                a.style.display = 'inline-block'; } else { a.href = '#';
+                a.style.display = 'inline-block'; }
+            document.getElementById('errorDialog').className = 'dialog-overlay show';
+        }
+
+        window.closeErrorDialog = function() { document.getElementById('errorDialog').className = 'dialog-overlay'; };
+        window.showClearDialog = function() { document.getElementById('clearDialog').className =
+            'dialog-overlay show'; };
+        window.closeClearDialog = function() { document.getElementById('clearDialog').className =
+        'dialog-overlay'; };
+        window.clearHistory = function() {
+            const key = getStorageKey();
+            localStorage.removeItem(key);
+            localStorage.removeItem('lastPrediction_global');
+            historyData = [];
+            isCleared = true;
+            renderHistory();
+            closeClearDialog();
+        };
+        window.refreshData = function() {
+            updateDataAndPrediction();
+        };
+
+        (function() {
+            const splash = document.getElementById('splash');
+            const app = document.getElementById('app');
+            setTimeout(() => {
+                splash.style.opacity = '0';
+                setTimeout(() => {
+                    splash.style.display = 'none';
+                    app.style.display = 'block';
+                    document.getElementById('loginScreen').style.display = 'block';
+                }, 600);
+            }, 3000);
+        })();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('phone').addEventListener('input', function() {
+                const phone = this.value.trim();
+                const pw = document.getElementById('password').value.trim();
+                const btn = document.getElementById('loginBtn');
+                if (phone.replace(/\D/g, '').length && pw.length) {
+                    btn.className = 'btn-login btn-enabled';
+                    btn.disabled = false;
+                } else {
+                    btn.className = 'btn-login btn-disabled';
+                    btn.disabled = true;
+                }
+            });
+            document.getElementById('password').addEventListener('input', function() {
+                const pw = this.value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const btn = document.getElementById('loginBtn');
+                if (phone.replace(/\D/g, '').length && pw.length) {
+                    btn.className = 'btn-login btn-enabled';
+                    btn.disabled = false;
+                } else {
+                    btn.className = 'btn-login btn-disabled';
+                    btn.disabled = true;
+                }
+            });
+            document.getElementById('errorDialog').addEventListener('click', function(e) { if (e.target === this)
+                    closeErrorDialog(); });
+            document.getElementById('clearDialog').addEventListener('click', function(e) { if (e.target === this)
+                    closeClearDialog(); });
+        });
+    </script>
+</body>
+</html>
